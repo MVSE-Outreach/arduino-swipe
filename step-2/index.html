@@ -9,13 +9,111 @@ style="max-width:700px; border-radius:15px;"/><br/><br/>
 
 <h1>Step 2 - Detecting Swipes</h1>
 <p class="section">
-This tutorial will....
+Now we have the circuit set up, let's try and detect what sort of
+gesture we are making. We'll start simple, and just go for <i>left</i>,
+<i>right</i> or <i>none</i>.
 </p>
 
-<h2>A little bit of maths...</h2>
-<p class="section">
-Look at the diagram below...
+<h2>A little bit of thinking...</h2>
+<div class="section">
+<p>
+Take a moment to play with your current circuit. While looking at the
+Serial Plotter tool, observe how the waveform changes when you swipe left or
+right over the sensors, or don't put your hand near it.
 </p>
+<p>
+Notice that depending on the direction you swipe from, we get an up pulse
+or a down pulse? We can detect the order of each pulse, and use this to
+find out the direction of the swipe. For example, an up pulse followed by a
+down pulse means a swipe left, and a down then an up means a right swipe.
+Ofcourse, if the value isn't changing at all, we can just assume that there
+is no swipe happening.
+</p>
+<p>
+How can we easily detect whether a swipe is happening, and then the order in
+which we get an up or down pulse? Let's break it down:
+<ol>
+<li>
+If the sensor value is not changing, let's assume there is no swipe. This is 
+the easy bit!
+</li>
+<li>
+Next, we need to work out <i>if</i> the value is changing, and then which
+direction it is going in. We can do this by storing two sensor values. The
+most recent value, and the <i>previous</i> value. 
+<ul>
+<li>If we subtract one from the
+other, and the value is zero, we know it isn't changing. 
+</li>
+<li>If the result is
+big, then we are swiping one way, and if the result is negative, we are
+swiping the other way</li>
+</ul></li>
+</ol>
+Cool eh? This is way of finding how fast a signal is
+changing is called <i>taking the derivitive</i>. The picture below shows
+what happens when we <i>take the derivitive</i> of a signal. Notice that the
+graph on the right has a bigger value when the graph on the left is steepest?
+</p>
+</div>
+
+<h2>Show Me The Code</h2>
+<div class="section">
+<p>
+Right, now we've done all of that thinking, lets write the code! The example
+code is shown below, can you work out which lines do what? See if you can
+explain to yourself where we work out how fast the sensor value is changing.
+</p>
+<div style="text-align:left; max-width:735px;">
+<img src="{{site.baseurl}}/images/ide-top.png"/>
+{% highlight C linenos %}
+
+{% include_relative gradient/gradient.ino %}
+
+{% endhighlight %}
+<img src="{{site.baseurl}}/images/ide-bottom.png"/>
+</div><br/>
+<p>
+Again, upload the code, and have another look at the output of the serial
+plotter. What do you see?
+</p>
+<p>
+Hopefully, you will see that if you move your finger across the two LDRs slowly
+that you can control the height of the blue plotter line? See if you can
+gradually move it up and down. If you move your finger slowly, the red line
+will not move. Now, if you quickly move your finger, you'll see the red line
+jump up and down very quickly. Can you remember why it jumps only if we move
+our finger quickly?
+</p>
+</div>
+
+<h2>Left and Right</h2>
+<div class="section">
+<p>
+So now we know what to look for, lets try and detect a left and right
+swipe properly. We're going to use a very simple <i>state machine</i> This
+is just a very simple way of keeping track of all the changing signals, and
+which direction they are going in.
+</p>
+<p>
+The code below detects first if the red line has changed suddenly, and then
+looks at if it is greater or less than zero. We use these three <i>states</i>
+to assign whether we swiped left or right.
+</p>
+<div style="text-align:left; max-width:735px;">
+<img src="{{site.baseurl}}/images/ide-top.png"/>
+{% highlight C linenos %}
+
+{% include_relative gesture/gesture.ino %}
+
+{% endhighlight %}
+<img src="{{site.baseurl}}/images/ide-bottom.png"/>
+</div><br/>
+<p>
+When you run this code, you should see a new line in the plotter, which goes
+either up or down based on whether you swiped left or right!
+</p>
+</div>
 
 <br/>
 <p style="text-align:center; font-weight:bolder; font-size:x-large;">
