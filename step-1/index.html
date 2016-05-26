@@ -2,20 +2,65 @@
 layout: default
 ---
 
-<p class="section" style="text-align:center;">
-<img alt="Finished Circuit Picture - to be shot!"
-style="max-width:700px; border-radius:15px;"/><br/><br/>
-</p>
-
 <h1>Step 1 - Setting Up The Sensor</h1>
 <p class="section">
-This tutorial will....
+First things first, we need to build the circuit for our gesture sensor.
+This section will show you the circuit diagram for you to copy, and also
+explain how it works.
 </p>
 
+<h2>About The Components</h2>
+
+<div class="section">
+<p>
+We will be using just two different components to build our gesture sensor!
+The first is the Arduino, obviously. The second is called a <i>Light
+Dependent Resistor</i> or <i>LDR</i>. It's the one that looks like a little
+circle with legs in the picture below.
+</p>
+
+<img alt="Photo of light dependent resistor"/>
+
+<p>
+You've probably guessed, that it is a resistor, and that it's <i>resistance</i>
+changes depending on how much light we shine on it's face. We can build a
+circuit that uses two of these, and detects that one of them has been
+covered up.
+</p>
+
+</div>
+
 <h2>Building the circuit.</h2>
-<p class="section">
+<div class="section">
+<p>
 Look at the diagram below...
 </p>
+
+<img alt="Circuit Diagram"/>
+
+<p>
+Pretty simple eh?
+</p>
+</div>
+
+<h2>Testing It Out.</h2>
+<div class="section">
+<p>
+Now, lets write some code, and work out how our circuit behaves when we
+wave at it. The code is shown below:
+</p>
+
+<img alt="Circuit Diagram"/>
+
+<p>
+Upload this code to the Arduino, like you did in the 
+<a href="{{site.baseurl}}/getting-started">getting started</a> section.
+Once that has finished, you can use a tool called the <i>Serial Plotter</i>
+by going to <b>Tools -> Serial Plotter</b> in the Arduino IDE Menu Bar.
+All this does is make a graph of the sensor value we are sending back to the
+computer with the <code>Serial.println</code> command.
+</p>
+</div>
 
 <br/>
 <p style="text-align:center; font-weight:bolder; font-size:x-large;">
