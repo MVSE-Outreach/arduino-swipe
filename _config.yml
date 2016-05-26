@@ -1,0 +1,22 @@
+
+# Site settings
+
+title: Arduino Swipe
+
+email: bm12656@my.bristol.ac.uk
+
+author_name: Ben Marshall
+author_website: ben-marshall.github.io
+
+description: > # this means to ignore newlines until "baseurl:"
+    A tutorial written for the Digimakers project that teaches people how to
+    build a simple swipe gesture sensor, and use it to play ping-pong.
+
+baseurl: "/arduino-swipe" # the subpath of your site, e.g. /blog
+
+twitter_username: digi_makers
+
+github_username:  MVSE-Outreach
+
+# Build settings
+markdown: kramdown

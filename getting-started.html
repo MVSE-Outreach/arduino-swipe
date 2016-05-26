@@ -1,0 +1,104 @@
+---
+layout: default
+title: Getting Started
+---
+
+<h1>Getting Started</h1>
+
+<p>This page will tell you how to get the Arduino software installed on
+your computer, and run a basic program to check everything is working.</p>
+
+<hr/><br/>
+
+<h2>1. Downloading The Software</h2>
+<div class="section">
+<p>
+First, head over to <a href="http://www.arduino.cc/en/Main/Software" 
+target="_blank">the Arduino website</a> and download the latest version 
+of their software for your computer. They do versions for Windows, Mac 
+OS X and Linux.
+</p>
+<p>
+Once you have downloaded and installed the Arduino software, launch it
+and you should see a window like the one shown in the image below.
+</p>
+</div>
+
+<h2>2. Connecting The Board</h2>
+<div class="section">
+<p> Next, we need to actually connect our Arduino Board to the computer. Use
+the USB cable provided, and plug it into the mini-USB port on the Arduino,
+and a USB port on your PC. You should see the little green LED on the board
+light up.
+</p>
+<p>
+Now to set up the connection to the board. Using your Arduino software,
+click on the <b>Tools</b> menu icon, and under the <i>Board:</i> sub-menu,
+select the board you are using. For the Digimakers workshop, we are using
+the "<i>Arduino Leonardo</i>".
+</p>
+<p>
+With the correct board selected, click again on the <b>Tools</b> menu, and
+this time click on the "<i>Port:</i>" sub-menu. What you will see will
+depend on your operating system. Windows users will see "<i>COMX</i>" where
+X is a number, while Linux users will usually see "<i>/dev/ttyACMX</i>".
+Select the first one in the list. You can try the others if the first one
+doesn't work in the next step.
+</p>
+<p>
+Back on your Arduino IDE, goto the <b>File</b> menu and select
+<i>Examples -> 01. Basics -> Blink</i>. A new window will appear with some
+code already inserted. You can now click on the <i>Upload</i> button in
+the <b>Sketch</b> menu, or, for wizz-kids, press <i>Ctrl-U</i>.
+</p>
+<p>
+
+<div style="text-align:left; max-width:735px;">
+<img src="{{site.baseurl}}/images/ide-top.png"/>
+{% highlight C linenos %}
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+    // set digital pin 13 as an output.
+    pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+    digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+    delay(1000);              // wait for a second
+
+    digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+    delay(1000);              // wait for a second
+
+    // Automatically loop back to the beginning of the loop() function.
+}
+
+{% endhighlight %}
+<img src="{{site.baseurl}}/images/ide-bottom.png"/>
+</div><br/>
+
+<p>
+Some text should fly past a the bottom of your Arduino IDE window, the last
+line of which will be "Upload Complete!". The yellow LED on your Arduino
+should now be flashing!
+</p>
+</div>
+
+<h2>3. Next Steps</h2>
+<div class="section">
+<p>
+Now we know we can upload code to our Arduino, can you work out what our
+"Blink" program does, and how? We'll go over the code properly in the next
+section, but the more you can figure out now, the better.
+</p>
+<p>
+In the next section, we will start building some circuits!
+</p>
+</div>
+
+<br/>
+<p style="text-align:center; font-weight:bolder; font-size:x-large;">
+<a href="{{site.baseurl}}/">&lt; Home</a> | 
+<a href="{{site.baseurl}}/step-1">Step 1 - The Sensor Circuit &gt;</a>
+</p>
