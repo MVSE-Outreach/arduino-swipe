@@ -33,24 +33,35 @@ covered up.
 <h2>Building the circuit.</h2>
 <div class="section">
 <p>
-Look at the diagram below...
+The diagram below shows how to connect two LDRs to the Arduino. Believe it
+or not, this is all the circuitary we need to make our sensor! Copy it
+carefully using your components, and then move on to the next section.
+Can you guess how the circuit is going to work? Remember, the <b>A0</b>
+pin we have connected to the Arduino is an <i>input</i>, and the LDRs change
+depending on how much light they can see.
 </p>
 
-<img alt="Circuit Diagram"/>
+<img alt="Circuit Diagram" src="circuit-step-1.svg" style="width:100%;"/>
 
-<p>
-Pretty simple eh?
-</p>
 </div>
 
 <h2>Testing It Out.</h2>
 <div class="section">
 <p>
 Now, lets write some code, and work out how our circuit behaves when we
-wave at it. The code is shown below:
+wave at it. See if you can work out what each line of the code does, and
+how your code relates to the circuit you just made.
 </p>
 
-<img alt="Circuit Diagram"/>
+<div style="text-align:left; max-width:735px;">
+<img src="{{site.baseurl}}/images/ide-top.png"/>
+{% highlight C linenos %}
+
+{% include_relative gesture/gesture.ino %}
+
+{% endhighlight %}
+<img src="{{site.baseurl}}/images/ide-bottom.png"/>
+</div><br/>
 
 <p>
 Upload this code to the Arduino, like you did in the 
@@ -58,7 +69,21 @@ Upload this code to the Arduino, like you did in the
 Once that has finished, you can use a tool called the <i>Serial Plotter</i>
 by going to <b>Tools -> Serial Plotter</b> in the Arduino IDE Menu Bar.
 All this does is make a graph of the sensor value we are sending back to the
-computer with the <code>Serial.println</code> command.
+computer with the <code>Serial.println</code> command. You should see something
+like what appears in the GIF below:
+</p><br/>
+<img alt="Finished circuit and graph GIF."> 
+</div>
+
+<h2>How it works.</h2>
+<div class="section">
+<p>
+Figured it out yet? Don't worry if not. Here's how:<br/>
+TODO: Add this explanation - potential dividers etc.
+</p>
+<p>
+Next up, let's write a little more code so we can easily tell if we are
+swiping left or right.
 </p>
 </div>
 
