@@ -34,7 +34,7 @@ covered up.
 <div class="section">
 <p>
 The diagram below shows how to connect two LDRs to the Arduino. Believe it
-or not, this is all the circuitary we need to make our sensor! Copy it
+or not, this is all the circuitry we need to make our sensor! Copy it
 carefully using your components, and then move on to the next section.
 Can you guess how the circuit is going to work? Remember, the <b>A0</b>
 pin we have connected to the Arduino is an <i>input</i>, and the LDRs change
@@ -79,11 +79,36 @@ like what appears in the GIF below:
 <div class="section">
 <p>
 Figured it out yet? Don't worry if not. Here's how:<br/>
-TODO: Add this explanation - potential dividers etc.
+This circuit is called a <i>voltage divider</i>. It is a way of taking a
+big voltage, and making it smaller. It can also be used to do simple maths,
+make a signal more manageable, and, in our case, detect swipes!
 </p>
 <p>
-Next up, let's write a little more code so we can easily tell if we are
-swiping left or right.
+It works by <i>dividing</i> the voltage across the two LDRs. Remember, we
+start with 5V at the top of one LDR, and finish with 0V at the bottom of
+the other one. Somewhere, we need to loose or "drop" 5V. If the two LDRs have
+the <i>same resistance</i> then each one will drop half of the voltage, or
+2.5V. Now, if the top LDR has a much bigger resistance than the bottom one,
+then <i>more</i> volts are dropped by it than the bottom one. This means
+that the sensor value will be smaller, because by the time we get to the
+second LDR, there are fewer volts left!
+</p>
+<p>
+Try thinking of it the other way round, if the top LDR has a very small
+resistance, and the bottom one a very big one, what do you think the sensor
+value will be? Big or Small?
+</p>
+<p>
+Big of course! Because all the volts are "dropped" across the bottom LDR.
+Now remember that we can change the resistance of the LDR by changing how much
+light they can see? This is how our gesture sensor will work. By changing the
+light on one sensor, we affect the voltage between the LDRs, and can measure
+it with the Arduino!
+</p>
+<p>
+Don't worry if all of that was confusing (looking at you too parents!),
+hopefully it will become clear as you carry on. Next up, let's write a little
+more code so we can easily tell if we are swiping left or right.
 </p>
 </div>
 

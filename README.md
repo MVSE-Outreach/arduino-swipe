@@ -18,7 +18,6 @@ The tutorial can be viewed best at http://mvse-outreach.github.io/arduino-swipe
  - Final image of swiping circuit.
 - Step 1
  - LDR Photo
- - Explanation of potential dividers.
 - Step 2
  - Photo of final circuit
  - GIF of final circuit working with plotter window.
