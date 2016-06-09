@@ -2,19 +2,100 @@
 layout: default
 ---
 
-<p class="section" style="text-align:center;">
-<img alt="Finished Circuit Picture - to be shot!"
-style="max-width:700px; border-radius:15px;"/><br/><br/>
+<h1>Step 3 - Detecting Swipes</h1>
+
+<p>
+<h3>PICTURE HERE</h3>
 </p>
 
-<h1>Step 3 - Playing Ping Pong</h1>
-<p class="section">
-This tutorial will....
+<h2>A little bit of thinking...</h2>
+<div class="section">
+<p>
+Take a moment to play with your current circuit. While looking at the
+Serial Plotter tool, observe how the waveform changes when you swipe left or
+right over the sensors, or don't put your hand near it.
 </p>
+<p>
+Notice that if you are careful, and get your hand or finger in just the right
+place, you can control quite accurately where the line on the plot window
+goes? We can use this as a simple <i>slider</i> and control the position
+of something on the screen!
+</p>
+<p>
+We can also work out the <i>direction</i> of a swipe across the sensor, by
+looking at how the value we measure is changing. If it is increasing, we can
+call this a left swipe, and if it is getting smaller, it's a right swipe.
+</p>
+<ol>
+<li>
+If the sensor value is not changing, let's assume there is no swipe. This is 
+the easy bit!
+</li>
+<li>
+Next, we need to work out <i>if</i> the value is changing, and then which
+direction it is going in. We can do this by storing two sensor values. The
+most recent value, and the <i>previous</i> value. 
+<ul>
+<li>If we subtract one from the
+other, and the value is zero, we know it isn't changing. 
+</li>
+<li>If the result is
+big, then we are swiping one way, and if the result is negative, we are
+swiping the other way</li>
+</ul></li>
+</ol>
+Cool eh? This is way of finding how fast a signal is
+changing is called <i>taking the derivitive</i>. The picture below shows
+what happens when we <i>take the derivitive</i> of a signal. Notice that the
+graph on the right has a bigger value when the graph on the left is steepest?
+</p>
+</div>
 
-<h2>Building The Screen Circuit<h2>
-<p class="section">
-Look at the diagram below...
+<h2>Left and Right</h2>
+<div class="section">
+<p>
+So now we know what to look for, lets try and detect a left and right
+swipe properly. Try to look at the code below and work out what it is doing
+first. This will help you understand how to change it later on.
+</p>
+<p>
+Remember, to find out the direction of a swipe, we look at the value of the
+<i>derivitive</i> of the sensor value, which is how fast it is changing.
+By looking at whether the rate of change of the sensor value is above or below
+a certain point, we can say a left or right swipe has happened.
+</p>
+<div style="text-align:left; max-width:735px;">
+<img src="{{site.baseurl}}/images/ide-top.png"/>
+{% highlight C linenos %}
+
+{% include_relative gesture/gesture.ino %}
+
+{% endhighlight %}
+<img src="{{site.baseurl}}/images/ide-bottom.png"/>
+</div><br/>
+<p>
+When you run this code, you should see a new line in the plotter, which goes
+either up or down based on whether you swiped left or right!
+</p>
+<p>
+<h3>PICTURE HERE</h3>
+</p>
+</div>
+
+<h2>What Next?</h2>
+<div class="section">
+<p>
+So, now you know how to build a gesture sensor using an Arduino! But, we
+we haven't been very imaginative with it have we? This I leave to you, what
+possible uses can you think up for it?
+<ul>
+<li>A motion sensitive burgler alarm?</li>
+<li>Using it to control a game? Perhaps 
+<a href="http://mvse-outreach.github.io/arduino-games/">Ping-pong?</a></li>
+<li>Can you make your own game, where you control the player position
+with the sensor?</li>
+</ul>
+Let us know what you build!
 </p>
 
 <br/>
