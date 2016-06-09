@@ -1,5 +1,6 @@
 
 #define SENSOR_PIN A0
+#define LED_PIN    11
 
 // This will store the most recent value of our swipe sensor.
 int currentSensorValue;
@@ -24,7 +25,11 @@ void loop() {
     sensorSteepness = currentSensorValue - previousSensorValue;
 
     // Move the most recent sensor measurement to the previous one.
-    previousValues[valueIndexAdd] = currentSensorValue;
+    previousSensorValue = currentSensorValue;
+
+    // Make the LED brighter or dimmer.
+    int brightness = map(currentSensorValue, 0,1023,0,25);
+    analogWrite(LED_PIN, brightness);
 
     // print the sensor steepness value for the plotter.
     Serial.print(currentSensorValue);
